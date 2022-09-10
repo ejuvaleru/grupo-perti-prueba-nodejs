@@ -18,6 +18,7 @@ app.use(cors());
 
 // Rutas
 app.use('/api/user', require('../src/routes/auth'));
+app.use('/api/user', require('../src/routes/user'));
 app.use('/api/movie', require('../src/routes/movie'));
 app.use('/api/rol', require('../src/routes/rol'));
 
