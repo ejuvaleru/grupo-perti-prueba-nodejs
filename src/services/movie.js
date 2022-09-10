@@ -17,9 +17,10 @@ const create = async function (movie) {
     }
 }
 
-const getAll = async function () {
+const getAll = async function (query) {
     try {
-        const movies = await Movie.find();
+        console.log('QUERY SERVICE ', query)
+        const movies = await Movie.find({title: {$lte: query}});
         if (movies.length > 0) {
             return movies;
         } else {
