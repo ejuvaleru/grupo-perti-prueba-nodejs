@@ -19,11 +19,12 @@ app.use(cors());
 // Rutas
 app.use('/api/user', require('../src/routes/auth'));
 app.use('/api/movie', require('../src/routes/movie'));
+app.use('/api/rol', require('../src/routes/rol'));
 
 // route middlewares
 app.get('/', (req, res) => {
     res.json({
-        estado: true,
+        status: 200,
         mensaje: 'It works!'
     })
 });
