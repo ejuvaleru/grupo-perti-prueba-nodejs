@@ -19,8 +19,9 @@ const create = async function (movie) {
 
 const getAll = async function (query) {
     try {
-        console.log('QUERY SERVICE ', query)
-        const movies = await Movie.find({title: {$lte: query}});
+        const filter = {};
+        if(query && query.length > 0) filter.title = { "$regex": query, "$options": "i" };
+        const movies = await Movie.find(filter);
         if (movies.length > 0) {
             return movies;
         } else {
