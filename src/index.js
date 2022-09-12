@@ -25,7 +25,7 @@ app.use('/api/movie', require('../src/routes/movie'));
 app.get('/', (req, res) => {
     res.json({
         status: 200,
-        mensaje: 'It works!'
+        message: 'It works!'
     })
 });
 
@@ -33,5 +33,5 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, (err) => {
     if (err) throw new Error(err);
-    console.log(`Servidor en el puerto ${PORT}`);
+    console.log(`Server on PORT ${PORT}`);
 });

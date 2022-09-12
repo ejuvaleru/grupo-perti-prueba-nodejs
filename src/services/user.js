@@ -6,7 +6,7 @@ const create = async function (user) {
             email: user.email,
             name: user.name,
             password: user.password,
-            rols: user.rols
+            rol: user.rol
         });
 
         const savedUser = await newUser.save();
@@ -31,7 +31,7 @@ const getAll = async function () {
 
 const getOneById = async function (id) {
     try {
-        const user = await User.findById(id).populate('rols');
+        const user = await User.findById(id);
         if (user) {
             return user;
         } else {
@@ -50,7 +50,7 @@ const updateUser = async function (id, user) {
         userDB.email = user.email;
         userDB.name = user.name;
         userDB.password = user.password;
-        userDB.rols = user.rols;
+        userDB.rol = user.rol;
 
         const savedUser = await userDB.save();
         return savedUser;
