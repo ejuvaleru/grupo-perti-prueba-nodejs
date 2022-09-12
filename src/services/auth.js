@@ -10,7 +10,7 @@ const onRegister = async function (user) {
             email: user.email,
             name: user.name,
             password: encryptedPassword,
-            rols: user.rols
+            rol: user.rol
         });
 
         const savedUser = await newUser.save();
@@ -33,15 +33,15 @@ const onLogin = async function(user, res) {
 
     const token = jwt.sign({
         user_id: userFromDB._id,
-        rol: userFromDB.rols[0],
+        rol: userFromDB.rol,
         email: email
     },  Utils.SECRET, {"expiresIn": "1 days"});
 
-    let result = {
+    const result = {
         _id: userFromDB._id,
         name: userFromDB.name,
         email: userFromDB.email,
-        rols: userFromDB.rols,
+        rol: userFromDB.rol,
         creationDate: userFromDB.creationDate,
         token: `Bearer ${token}`,
         expiresIn: 160

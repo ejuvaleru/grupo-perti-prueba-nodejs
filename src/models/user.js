@@ -18,12 +18,12 @@ const userSchema = mongoose.Schema({
         required: true,
         minlength: 4
     },
-    rols: [
-        {
-            type: mongoose.Schema.ObjectId,
-            ref: 'Rol'
-        }
-    ],
+    rol: {
+        type: String,
+        required: true,
+        default: "USER",
+        enum: ["USER", "ADMIN"]
+    },
     creationDate: {
         type: Date,
         default: Date.now
